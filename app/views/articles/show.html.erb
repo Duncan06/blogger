@@ -6,7 +6,7 @@
     <% end %>
 </p>
 <p><%= @article.body %></p>
-<% if logged_in? %>
+<% if @article.author_id == current_user.username %>
     <%= link_to "edit", edit_article_path(@article) %>
     <%= link_to "delete", article_path(@article), method: :delete, data: {confirm: "Really delete the article?"} %>
 <% end %>
